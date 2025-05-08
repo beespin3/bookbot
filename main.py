@@ -5,8 +5,7 @@ from stats import count_characters
 from stats import sort_char_counts
 
 if len(sys.argv) != 2:
-    print("Incorrect usage\n" + 
-          "Expected usage: python3 main.py <path_to_book>")
+    print("Usage: python3 main.py <path_to_book>")
     sys.exit(1)
 
 def get_book_text(f):
