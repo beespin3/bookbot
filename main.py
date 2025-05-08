@@ -1,13 +1,20 @@
+import sys
+
 from stats import get_word_count
 from stats import count_characters
 from stats import sort_char_counts
+
+if len(sys.argv) != 2:
+    print("Incorrect usage\n" + 
+          "Expected usage: python3 main.py <path_to_book>")
+    sys.exit(1)
 
 def get_book_text(f):
         return f.read()
     
 def print_report(word_count, list):
     print("============ BOOKBOT ============\n" +
-          "Analyzing book found at books/frankenstein.txt...\n" +
+          f"Analyzing book found at {sys.argv[1]}...\n" +
           "----------- Word Count ----------\n" + 
           f"Found {word_count} total words\n" + 
           "--------- Character Count -------")
@@ -21,7 +28,7 @@ def print_report(word_count, list):
     print("============= END ===============")
 
 def main():
-     with open("books/frankenstein.txt") as f:
+     with open(f"{sys.argv[1]}") as f:
         book_text = get_book_text(f)
         word_count = get_word_count(book_text)
         char_dict = count_characters(book_text)
@@ -29,5 +36,4 @@ def main():
         
         print_report(word_count, sorted_chars)
         
-    
 main()

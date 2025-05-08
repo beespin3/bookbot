@@ -30,6 +30,3 @@ def sort_char_counts(dict):
     pairs.sort(reverse=True, key=sort_on)
     
     return pairs
-        
-    
-        
